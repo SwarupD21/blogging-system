@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "aifr=r3uhj0rvwdsd74@ek@t^glm5o%c$0-h-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "True") == "True"
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [".onrender.com"]
 
 
 # Application definition
@@ -86,7 +86,8 @@ WSGI_APPLICATION = 'blog_main.wsgi.application'
 
 DATABASES = {
     "default": dj_database_url.config(
-        default="postgresql://postgres:swarup21@localhost:5432/blog_db"
+        default="postgresql://postgres:swarup21@localhost:5432/blog_db" ,
+        conn_max_age=600,
     )
 }
 
@@ -141,3 +142,5 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR /'media'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
