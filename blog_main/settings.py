@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "aifr=r3uhj0rvwdsd74@ek@t^glm5o%c$0-h-
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "True") == "True"
-ALLOWED_HOSTS = [".onrender.com"]
+ALLOWED_HOSTS = [".onrender.com", "127.0.0.1"]
 
 # cloudinary image storage
 # CLOUDINARY_STORAGE = {

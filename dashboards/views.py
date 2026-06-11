@@ -69,6 +69,8 @@ def add_post(request):
     if request.method == 'POST':
         form = BlogPostForm(request.POST, request.FILES)
         if form.is_valid():
+            print("FORM VALID")
+            print("IMAGE =", request.FILES.get('featured_image'))
             post = form.save(commit=False) # temporarily saving the form
             post.author = request.user
             post.save()
